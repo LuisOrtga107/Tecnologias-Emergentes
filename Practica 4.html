@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tecnologías Emergentes</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgb(2, 29, 45);
+      color: white;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 100;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 40px;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      color: cyan;
+    }
+
+    main {
+      padding: 100px 20px 60px;
+      text-align: center;
+    }
+
+    section {
+      display: none;
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    section.active {
+      display: block;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+
+    table, th, td {
+      border: 2px solid #0b3d91;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #0b3d91;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    fieldset {
+      border: 2px solid #0b3d91;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: left;
+    }
+
+    legend {
+      font-weight: bold;
+      color: #0b3d91;
+    }
+
+    form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #0b3d91;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #062b66;
+    }
+
+    footer {
+      background-color: rgb(2, 29, 45);
+      color: white;
+      text-align: center;
+      padding: 30px 10px;
+      font-size: 14px;
+    }
+
+    footer .info-extra {
+      font-size: 15px;
+      color: cyan;
+      margin-bottom: 5px;
+    }
+
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#" onclick="mostrarSeccion('datos')">Datos Personales</a></li>
+      <li><a href="#" onclick="mostrarSeccion('horarios')">Horarios</a></li>
+      <li><a href="#" onclick="mostrarSeccion('formulario')">Formulario</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <section id="datos" class="active">
+      <h2>Datos Personales</h2>
+      <h3><tt>TECNOLOGÍAS EMERGENTES 02/2025</tt></h3>
+      <p><strong>Nombres:</strong> <ins>Luis Alejandro</ins></p>
+      <p><strong>Apellidos:</strong> <del>Ortega Choque</del></p>
+      <p><strong>Semestre:</strong> 4° Semestre</p>
+    </section>
+    
+    <section id="horarios">
+      <h2>Horarios</h2>
+      <table>
+        <tr>
+          <th>Horas</th>
+          <th>Lunes</th>
+          <th>Martes</th>
+          <th>Miércoles</th>
+          <th>Jueves</th>
+          <th>Viernes</th>
+        </tr>
+        <tr>
+          <td>10:15 - 12:00</td>
+          <td></td>
+          <td>Investigación Operativa I</td>
+          <td></td>
+          <td>Tecnologías Emergentes</td>
+          <td>Análisis de Sistemas II</td>
+        </tr>
+        <tr>
+          <td>16:15 - 17:00</td>
+          <td></td>
+          <td>Tecnologías Emergentes</td>
+          <td>Tecnologías Emergentes</td>
+          <td>Investigación Operativa I</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>18:30 - 20:45</td>
+          <td>Análisis de Sistemas II</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </section>
+    <section id="formulario">
+      <h2>Formulario de Registro</h2>
+      <form action="procesar.php" method="post">
+        <fieldset>
+          <legend>Datos personales</legend>
+          <label>Nombre:</label>
+          <input type="text" name="nombre" placeholder="Ej. Ana Martínez" required>
+          
+          <label>Apellidos:</label>
+          <input type="text" name="apellido" placeholder="Ej. Pérez Gutiérrez" required>
+          
+          <label>Ciudad:</label>
+          <input list="ciudades" id="ciudad" name="ciudad" placeholder="Escribe o selecciona">
+          <datalist id="ciudades">
+            <option value="La Paz">
+            <option value="Cochabamba">
+            <option value="Chuquisaca">
+            <option value="Santa Cruz">
+            <option value="Potosí">
+            <option value="Tarija">
+            <option value="Oruro">
+            <option value="Pando">
+            <option value="Beni">
+          </datalist>
+
+          <label>Fecha:</label>
+          <input type="date" name="fecha" required>
+
+          <label>Hora:</label>
+          <input type="time" name="hora" required>
+
+          <button type="submit">Enviar</button>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="info-extra">
+      Ingeniería de Sistemas - Sede Tupiza
+    </div>
+    TODOS LOS DERECHOS RESERVADOS © 2025
+  </footer>
+
+  <script>
+    function mostrarSeccion(id) {
+      document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+  </script>
+</body>
+</html>
